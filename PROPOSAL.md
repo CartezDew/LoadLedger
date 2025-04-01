@@ -11,7 +11,7 @@ This tool not only replaces manual spreadsheets but provides real-time visibilit
 
 These are the core features:
 
-1. Load & Broker Management
+1. Load Management
    - As a user, I want to create a new load entry with details like broker name, load number, rate, and delivery date.
    - As a user, I want to view a list of all my loads, so I can quickly find recent hauls.
    - As a user, I want to edit or delete a load, in case something changes or was entered incorrectly.
@@ -50,7 +50,7 @@ These are the core features:
 
 ## Main Wire Frame
 
-![image](https://i.postimg.cc/6pTkX2Hv/temp-Image6o-ERCt.avif)
+![image](https://i.postimg.cc/1zDhRVZW/temp-Image-Ax-XYha.avif)
 
 ## Load Details
 
@@ -62,7 +62,7 @@ These are the core features:
 
 ## ERD
 
-![image](https://i.postimg.cc/RhrMsLdT/temp-Imageb-Goi-Fd.avif)
+![image](https://i.postimg.cc/XvYd4dFW/temp-Images0-Ar1n.avif)
 
 ## Pseudocode
 
