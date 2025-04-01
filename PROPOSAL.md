@@ -17,12 +17,7 @@ These are the core features:
    - As a user, I want to edit or delete a load, in case something changes or was entered incorrectly.
    - As a user, I want to mark a load as paid or unpaid to keep tabs on broker payment status.
 
-2. Driver Pay Tracking
-   - As a user, I want to assign a driver to a load, so I know who was responsible for the haul.
-   - As a user, I want to record payment status for each driver, including payment amount and date paid.
-   - As a user, I want to filter or sort by unpaid drivers or brokers, so I can follow up accordingly.
-
-3. User Interface
+2. User Interface
    - As a user, I want to see a clean dashboard layout with tables, buttons, and clear navigation.
    - As a user, I want to easily identify which loads are still unpaid or need attention using visual indicators.
    - As a user, I want the ability to login in and authenticate the users to protect sensitive information.
@@ -48,21 +43,26 @@ These are the core features:
 5. Load Document Upload
    - Add functionality for uploading Rate Confirmations, BOLs (Bill of Lading), and invoices to each load entry.
 
+6. Create a Driver Route & Table
+   - Add functionality for uploading driver information and details regarding their pay status and miles traveled.   
+   
+
+
 ## Main Wire Frame
 
 ![image](https://i.postimg.cc/6pTkX2Hv/temp-Image6o-ERCt.avif)
 
-## Drivers Wire Frame
-
-![image](https://i.postimg.cc/SxZwxJmc/temp-Image-Yuqs-VD.avif)
-
-## Brokders Wire Frame
+## Load Details
 
 ![image](https://i.postimg.cc/xTfxNnx5/temp-Image-Muy-BG3.avif)
 
+## Edit Page
+
+![image](https://i.postimg.cc/6pTkX2Hv/temp-Image6o-ERCt.avif)
+
 ## ERD
 
-![image](https://i.postimg.cc/02Fyhwxz/temp-Imagea5lqdh.avif)
+![image](https://i.postimg.cc/sxXgZgTk/temp-Image-IJx-Xdg.avif)
 
 ## Pseudocode
 
@@ -119,29 +119,6 @@ GET     /loads/:id       → loadController.show
 GET     /loads/:id/edit  → loadController.edit
 PUT     /loads/:id       → loadController.update
 DELETE  /loads/:id       → loadController.delete
-
-
-## Drivers Routes (RESTful)
-
-Method	Path	            Description	                    Controller Action
-GET	    /drivers	        Show all drivers	            driverController.index
-GET 	/drivers/new	    Show form to add a new driver	driverController.new
-POST	/drivers	        Create a new driver	            driverController.create
-GET	    /drivers/:id	    Show a single driver detail	    driverController.show
-GET	    /drivers/:id/edit	Show form to edit a driver	    driverController.edit
-PUT	    /drivers/:id	    Update driver info	            driverController.update
-DELETE	/drivers/:id	    Delete a driver	                driverController.delete
-
-## Brokers Routes (RESTful)
-Method	Path	            Description	                    Controller Action
-GET	    /brokers	        Show all brokers	            brokerController.index
-GET	    /brokers/new	    Show form to add a new broker	brokerController.new
-POST	/brokers	        Create a new broker	            brokerController.create
-GET	    /brokers/:id	    Show a single broker detail	    brokerController.show
-GET	    /brokers/:id/edit	Show form to edit a broker	    brokerController.edit
-PUT	    /brokers/:id	    Update broker info	            brokerController.update
-DELETE	/brokers/:id	    Delete a broker	                brokerController.delete
-
 
 
 ## Timeline - Daily Accountability
