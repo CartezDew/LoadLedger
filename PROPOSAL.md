@@ -6,6 +6,7 @@ Load Ledger is a web-based, full-stack CRUD application designed for trucking an
 
 This tool not only replaces manual spreadsheets but provides real-time visibility into cash flow, payment deadlines, and job profitability—helping small and mid-sized trucking businesses stay organized and financially healthy.
 
+
 ## MVP (Minimum Viable Product) User Stories
 
 These are the core features:
@@ -25,6 +26,8 @@ These are the core features:
    - As a user, I want to see a clean dashboard layout with tables, buttons, and clear navigation.
    - As a user, I want to easily identify which loads are still unpaid or need attention using visual indicators.
 
+4. - As a user, I want the ability to login in and authenticate the users to protect sensitive information.
+
 ## Stretch Goals (Future Enhancements)
 
 1. Reporting & Analytics
@@ -33,7 +36,7 @@ These are the core features:
    - Display graphs and charts for visual summaries of outstanding balances and cash flow.
 
 2. Authentication & Multi-User Access
-   - Add user login and authentication to protect financial data..
+
    - Support multiple user roles (admin, dispatcher, accountant) with different access levels.
 
 3. Notifications & Reminders
@@ -46,9 +49,17 @@ These are the core features:
 5. Load Document Upload
    - Add functionality for uploading Rate Confirmations, BOLs (Bill of Lading), and invoices to each load entry.
 
-## Wire Frames
+## Main Wire Frame
 
 ![image](https://i.postimg.cc/6pTkX2Hv/temp-Image6o-ERCt.avif)
+
+## Drivers Wire Frame
+
+![image](https://i.postimg.cc/SxZwxJmc/temp-Image-Yuqs-VD.avif)
+
+## Brokders Wire Frame
+
+![image](https://i.postimg.cc/xTfxNnx5/temp-Image-Muy-BG3.avif)
 
 ## ERD
 
