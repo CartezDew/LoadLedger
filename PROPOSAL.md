@@ -25,8 +25,7 @@ These are the core features:
 3. User Interface
    - As a user, I want to see a clean dashboard layout with tables, buttons, and clear navigation.
    - As a user, I want to easily identify which loads are still unpaid or need attention using visual indicators.
-
-4. - As a user, I want the ability to login in and authenticate the users to protect sensitive information.
+   - As a user, I want the ability to login in and authenticate the users to protect sensitive information.
 
 ## Stretch Goals (Future Enhancements)
 
