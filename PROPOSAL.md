@@ -58,11 +58,11 @@ These are the core features:
 
 ## Edit Page
 
-![image](https://i.postimg.cc/6pTkX2Hv/temp-Image6o-ERCt.avif)
+![image](https://i.postimg.cc/sxXgZgTk/temp-Image-IJx-Xdg.avif)
 
 ## ERD
 
-![image](https://i.postimg.cc/sxXgZgTk/temp-Image-IJx-Xdg.avif)
+![image](https://i.postimg.cc/RhrMsLdT/temp-Imageb-Goi-Fd.avif)
 
 ## Pseudocode
 
