@@ -12,8 +12,8 @@
         <table>
           <thead>
             <tr>
-              <th>Broker</th>
               <th>Load #</th>
+              <th>Broker</th>
               <th>Confirmation #</th>
               <th>Pickup Date</th>
               <th>Pickup Location</th>
@@ -29,8 +29,8 @@
           <tbody>
             <% loads.forEach(item => { %>
               <tr>
-                <td><%= item.brokerName %></td>
                 <td><%= item.loadNumber %></td>
+                <td><%= item.brokerName %></td>
                 <td><%= item.confirmationNumber %></td>
                 <td><%= item.pickupDate.toISOString().split('T')[0] %></td>
                 <td><%= item.pickupLocation %></td>
@@ -57,7 +57,7 @@
       <% } else { %>
         <p>There are currently no loads to view.</p>
       <% } %>
-  
+    <br>
     <a href="/users/<%= user._id %>/loads/new">Add New Load</a>
   
   </body>

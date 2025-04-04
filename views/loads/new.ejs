@@ -11,32 +11,33 @@
     <h1>Add a Load Details</h1>
     <div class="styled-body">
       <form action="/users/<%= user._id %>/loads" method="POST">
-        <label>📦 Broker Name</label>
-        <input type="text" name="brokerName" />
 
         <label>📁 Load Number</label>
-        <input type="text" name="loadNumber" />
+        <input type="text" name="loadNumber" value="Auto-generated on save" readonly />
+
+        <label>📦 Broker Name</label>
+        <input type="text" name="brokerName" required/>
 
         <label>📁 Confirmation Number</label>
-        <input type="text" name="confirmationNumber" />
+        <input type="text" name="confirmationNumber" required/>
         <br />
         <br />
         <label>🏠 Pickup Date</label>
-        <input type="date" name="pickupDate" />
+        <input type="date" name="pickupDate" required/>
 
         <label> Pickup Location</label>
-        <input type="text" name="pickupLocation" />
+        <input type="text" name="pickupLocation" required/>
 
         <label> Delivery Date</label>
-        <input type="date" name="deliveryDate" />
+        <input type="date" name="deliveryDate" required/>
 
         <label> Delivery Location</label>
-        <input type="text" name="deliveryLocation" />
+        <input type="text" name="deliveryLocation" required/>
         <br />
         <br />
         <br />
         <label>💵 Rate</label>
-        <input type="number" name="rate" />
+        <input type="number" name="rate" required/>
         <br />
         <br />
         <label>💰 Payment Status</label>

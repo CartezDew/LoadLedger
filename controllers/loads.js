@@ -3,6 +3,26 @@ import User from "../models/user.js";
 
 const router = express.Router();
 
+//helper function
+
+async function getNextAvailableLoadNumber(user) {
+  // Extract only numbers from loadNumbers like 'LL-001'
+  const existingNumbers = user.loads
+    .map(load => {
+      const match = load.loadNumber && load.loadNumber.match(/LL-(\d+)/);
+      return match ? parseInt(match[1]) : null;
+    })
+    .filter(num => num !== null);
+
+  let next = 1;
+  while (existingNumbers.includes(next)) {
+    next++;
+  }
+
+  return `LL-${next.toString().padStart(3, '0')}`; // LL-001, LL-002, etc.
+}
+
+
 
 router.get("/", async (req, res) => {
   try {
@@ -18,6 +38,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 router.get("/new", (req, res) => {
   try {
     res.render("loads/new.ejs", { user: req.session.user });
@@ -31,7 +52,7 @@ router.post("/", async (req, res) => {
   try {
     const {
       brokerName,
-      loadNumber,
+      // loadNumber,
       confirmationNumber,
       pickupDate,
       pickupLocation,
@@ -44,7 +65,8 @@ router.post("/", async (req, res) => {
     } = req.body;
 
     const user = await User.findById(req.session.user._id);
-
+    const loadNumber = await getNextAvailableLoadNumber(user); //Auto-generate a unique load number
+    
     user.loads.push({
       brokerName, 
       loadNumber,
