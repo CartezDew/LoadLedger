@@ -13,43 +13,54 @@
       action="/users/<%= user._id %>/loads/<%= load._id %>?_method=PUT"
       method="POST"
     >
-      <input type="text" name="brokerName" value="<%= load.brokerName %>" />
-
+      <label>📁 Load Number</label>
       <input type="text" name="loadNumber" value="<%= load.loadNumber %>" readonly/>
 
+      <label>📦 Broker Name</label>
+      <input type="text" name="brokerName" value="<%= load.brokerName %>" required/>
+
+      <label>📁 Confirmation Number</label>
       <input
         type="text"
         name="confirmationNumber"
-        value="<%= load.confirmationNumber %>"
+        value="<%= load.confirmationNumber %>" required 
       />
 
+      <br>
+      <label>🏠 Pickup Date</label>
       <input
         type="date"
         name="pickupDate"
-        value="<%= load.pickupDate.toISOString().split('T')[0] %>"
+        value="<%= load.pickupDate.toISOString().split('T')[0] %>" required
       />
 
+      <label> Pickup Location</label>
       <input
         type="text"
         name="pickupLocation"
-        value="<%= load.pickupLocation %>"
+        value="<%= load.pickupLocation %>" required
       />
 
+      <label> Delivery Date</label>
       <input
         type="date"
         name="deliveryDate"
-        value="<%= load.deliveryDate.toISOString().split('T')[0] %>"
+        value="<%= load.deliveryDate.toISOString().split('T')[0] %>" required
       />
 
+      <label> Delivery Location</label>
       <input
         type="text"
         name="deliveryLocation"
-        value="<%= load.deliveryLocation %>"
+        value="<%= load.deliveryLocation %>" required
       />
-
+      <br>
+      <br>
+      <label>💵 Rate</label>
       <input type="number" name="rate" step="0.01" value="<%= load.rate %>" />
 
       <br />
+      <label>💰 Payment Status</label>
       <input type="radio" id="notPaid" name="paymentStatus" value="not paid" <%=
       load.paymentStatus === 'not paid' ? 'checked' : '' %> required />
       <label for="notPaid">Not Paid</label>
@@ -58,18 +69,18 @@
       load.paymentStatus === 'paid' ? 'checked' : '' %> required />
       <label for="paid">Paid</label>
       <br />
+
+      <label>📍 Contacted Date</label>
       <input
         type="date"
         name="contactedDate"
         value="<%= load.contacted ? load.contacted.toISOString().split('T')[0] : '' %>"
       />
 
+      <label>📝 Notes</label>
       <textarea name="notes"><%= load.notes %></textarea>
       <br />
       <br />
-      <br />
-      <br />
-
       <button type="submit">Update Item</button>
     </form>
   </body>
