@@ -7,14 +7,14 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Edit Load</h1>
+    <h1>Edit Load : <%= load.loadNumber %></h1>
 
     <form
       action="/users/<%= user._id %>/loads/<%= load._id %>?_method=PUT"
       method="POST"
     >
-      <label>📁 Load Number</label>
-      <input type="text" name="loadNumber" value="<%= load.loadNumber %>" readonly/>
+    
+      <input type="hidden" name="loadNumber" value="<%= load.loadNumber %>" />    
 
       <label>📦 Broker Name</label>
       <input type="text" name="brokerName" value="<%= load.brokerName %>" required/>
@@ -59,7 +59,7 @@
         <!-- Rate Field -->
         <div>
           <label>💵 Rate</label><br />
-          <input type="number" name="rate" required />
+          <input type="number" name="rate" value="<%= load.rate %>" step="0.01" required />
         </div>
         <div>
           <label>💰 Payment Status</label><br />
@@ -85,18 +85,18 @@
       <br />
 
       <label>Contacted Date</label>
-        <input type="date" name="contactedDate" />
+      <input type="date" name="contactedDate" value="<%= load.contactedDate ? load.contactedDate.toISOString().split('T')[0] : '' %>" />
 
-        <label>Invoiced Date</label>
-        <input type="date" name="invoicedDate" />
+      <label>Invoiced Date</label>
+      <input type="date" name="invoicedDate" value="<%= load.invoicedDate ? load.invoicedDate.toISOString().split('T')[0] : '' %>" />
 
-        <label>Payment Due</label>
-        <input type="date" name="pmtTerms" />
+      <label>Payment Due</label>
+      <input type="date" name="pmtTerms" value="<%= load.pmtTerms ? load.pmtTerms.toISOString().split('T')[0] : '' %>" />
         <br>
         <br>
 
         <label>📝 Notes</label>
-        <textarea name="notes"></textarea>
+        <textarea name="notes"><%= load.notes %></textarea>
         <br />
       <br />
       <button type="submit">Update Item</button>

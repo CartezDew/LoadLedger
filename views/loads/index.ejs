@@ -7,7 +7,7 @@
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= user.username %>'s Loads</h1>
+    <h1>Load Ledger</h1>
       <% if (loads.length > 0) { %>
         <table>
           <thead>
@@ -42,7 +42,7 @@
                 <td>$<%= Number(item.rate).toFixed(2) %></td>
                 <td><%= item.paymentStatus === "notPaid" ? "Not Paid" : "Paid" %></td>
                 <td><%= item.contactedDate ? item.contactedDate.toISOString().split('T')[0] : '' %></td>
-                <td><%= item.invoiced %></td>
+                <td><%= item.invoiced === "yes" ? "Yes" : "No"%></td>
                 <td><%= item.invoicedDate ? item.invoicedDate.toISOString().split('T')[0] : '' %></td>
                 <td><%= item.pmtTerms ? item.pmtTerms.toISOString().split('T')[0] : '' %></td>
                 <td><%= item.notes %></td>
@@ -64,7 +64,16 @@
         <p>There are currently no loads to view.</p>
       <% } %>
     <br>
-    <a href="/users/<%= user._id %>/loads/new">Add New Load</a>
+    <a href="/users/<%= user._id %>/loads/new">
+      <button type="button">➕ Add New Load</button>
+    </a>
+    <a href="/users/<%= user._id %>/loads/export/excel">
+      <button type="button">📊 Export to Excel</button>
+    </a>
+    
+    <a href="/users/<%= user._id %>/loads/export/pdf">
+      <button type="button">📄 Export to PDF</button>
+    </a>
   
   </body>
 </html>
