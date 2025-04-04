@@ -5,7 +5,7 @@ import User from "../models/user.js";
 const router = express.Router();
 
 router.get("/sign-up", (req, res) => {
-  res.render("res/sign-up.ejs");
+  res.render("auth/sign-up.ejs");
 });
 
 router.get("/sign-in", (req, res) => {
@@ -25,7 +25,6 @@ router.post("/sign-up", async (req, res) => {
       return res.send("Username already taken.");
     }
 
-    // Username is not taken already!
     // Check if the password and confirm password match
     if (req.body.password !== req.body.confirmPassword) {
       return res.send("Password and Confirm Password must match");

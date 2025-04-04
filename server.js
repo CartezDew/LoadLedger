@@ -5,8 +5,8 @@ import morgan from "morgan";
 import session from "express-session";
 import express from "express";
 
-import authController from "./controllers/user.js";
-import foodsController from "./controllers/foods.js";
+import authController from "./controllers/users.js";
+import loadsController from "./controllers/loads.js";
 import { isSignedIn } from "./middleware/isSignedIn.js";
 import { passUserToView } from "./middleware/passUserToView.js";
 
@@ -30,7 +30,7 @@ app.use(passUserToView);
 
 app.get("/", (req, res) => {
   if (req.session.user) {
-    res.redirect(`users/${req.session.user._id}/foods`);
+    res.redirect(`users/${req.session.user._id}/loads`);
   } else {
     res.render("index.ejs", {
       user: req.session.user,
@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 app.use("/auth", authController);
 // This middleware will redirect a user who isn't signed in, to the /auth/sing-in route
 app.use(isSignedIn);
-app.use("/users/:userId/foods", foodsController);
+app.use("/users/:userId/loads", loadsController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

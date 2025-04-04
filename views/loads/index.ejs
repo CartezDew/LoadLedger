@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Loads</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= user.username %>'s Loads</h1>
+      <% if (loads.length > 0) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Broker</th>
+              <th>Load #</th>
+              <th>Confirmation #</th>
+              <th>Pickup Date</th>
+              <th>Pickup Location</th>
+              <th>Delivery Date</th>
+              <th>Delivery Location</th>
+              <th>Rate</th>
+              <th>Payment Status</th>
+              <th>Contacted</th>
+              <th>Notes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% loads.forEach(item => { %>
+              <tr>
+                <td><%= item.brokerName %></td>
+                <td><%= item.loadNumber %></td>
+                <td><%= item.confirmationNumber %></td>
+                <td><%= item.pickupDate.toISOString().split('T')[0] %></td>
+                <td><%= item.pickupLocation %></td>
+                <td><%= item.deliveryDate.toISOString().split('T')[0] %></td>
+                <td><%= item.deliveryLocation %></td>
+                <td>$<%= Number(item.rate).toFixed(2) %></td>
+                <td><%= item.paymentStatus %></td>
+                <td><%= item.contactedDate ? item.contactedDate.toISOString().split('T')[0] : '' %></td>
+                <td><%= item.notes %></td>
+                <td>
+                  <a href="/users/<%= user._id %>/loads/<%= item._id %>/edit">Edit</a>
+                  <form 
+                    action="/users/<%= user._id %>/loads/<%= item._id %>?_method=DELETE" 
+                    method="POST" 
+                    style="display: inline;"
+                  >
+                    <button type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <p>There are currently no loads to view.</p>
+      <% } %>
+  
+    <a href="/users/<%= user._id %>/loads/new">Add New Load</a>
+  
+  </body>
+</html>

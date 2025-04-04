@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Load Details</title>
+    <!-- <link rel="stylesheet" href="/styles.css"> Make sure your CSS file includes the button styling -->
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <h1>Add a Load Details</h1>
+    <div class="styled-body">
+      <form action="/users/<%= user._id %>/loads" method="POST">
+        <label>📦 Broker Name</label>
+        <input type="text" name="brokerName" />
+
+        <label>📁 Load Number</label>
+        <input type="text" name="loadNumber" />
+
+        <label>📁 Confirmation Number</label>
+        <input type="text" name="confirmationNumber" />
+        <br />
+        <br />
+        <label>🏠 Pickup Date</label>
+        <input type="date" name="pickupDate" />
+
+        <label> Pickup Location</label>
+        <input type="text" name="pickupLocation" />
+
+        <label> Delivery Date</label>
+        <input type="date" name="deliveryDate" />
+
+        <label> Delivery Location</label>
+        <input type="text" name="deliveryLocation" />
+        <br />
+        <br />
+        <br />
+        <label>💵 Rate</label>
+        <input type="number" name="rate" />
+        <br />
+        <br />
+        <label>💰 Payment Status</label>
+        <div>
+          <input
+            type="radio"
+            id="notPaid"
+            name="paymentStatus"
+            value="not paid"
+            checked
+            required
+          />
+          <label for="notPaid">Not Paid</label>
+
+          <input
+            type="radio"
+            id="paid"
+            name="paymentStatus"
+            value="paid"
+            required
+          />
+          <label for="paid">Paid</label>
+        </div>
+        <br />
+        <label>📍 Contacted Date</label>
+        <input type="date" name="contactedDate" />
+
+        <label>📝 Notes</label>
+        <textarea name="notes"></textarea>
+        <br />
+        <br />
+        <br />
+        <br />
+        <button type="submit">Add Load</button>
+      </form>
+    </div>
+  </body>
+</html>
