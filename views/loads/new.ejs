@@ -8,7 +8,7 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Add a Load Details</h1>
+    <h1>Add Load Details</h1>
     <div class="styled-body">
       <form action="/users/<%= user._id %>/loads" method="POST">
 
@@ -34,40 +34,44 @@
         <label> Delivery Location</label>
         <input type="text" name="deliveryLocation" required/>
         <br />
-        <br />
-        <br />
-        <label>💵 Rate</label>
-        <input type="number" name="rate" required/>
-        <br />
-        <br />
-        <label>💰 Payment Status</label>
-        <div>
-          <input
-            type="radio"
-            id="notPaid"
-            name="paymentStatus"
-            value="not paid"
-            checked
-            required
-          />
-          <label for="notPaid">Not Paid</label>
-
-          <input
-            type="radio"
-            id="paid"
-            name="paymentStatus"
-            value="paid"
-            required
-          />
-          <label for="paid">Paid</label>
+        <div style="display: flex; align-items: flex-end; gap: 40px; margin-top: 20px;">
+          <!-- Rate Field -->
+          <div>
+            <label>💵 Rate</label><br />
+            <input type="number" name="rate" required />
+          </div>
+          <div>
+            <label>💰 Payment Status</label><br />
+            <input type="radio" id="notPaid" name="paymentStatus" value="notPaid" checked required />
+            <label for="notPaid">Not Paid</label>
+        
+            <input type="radio" id="paid" name="paymentStatus" value="paid" required />
+            <label for="paid">Paid</label>
+          </div>
+          <div>
+            <label>📄 Broker Invoiced</label><br />
+            <input type="radio" id="invoicedYes" name="invoiced" value="yes" />
+            <label for="invoicedYes">Yes</label>
+        
+            <input type="radio" id="invoicedNo" name="invoiced" value="no" checked />
+            <label for="invoicedNo">No</label>
+          </div>
         </div>
         <br />
-        <label>📍 Contacted Date</label>
+
+        <label>Contacted Date</label>
         <input type="date" name="contactedDate" />
+
+        <label>Invoiced Date</label>
+        <input type="date" name="invoicedDate" />
+
+        <label>Payment Due</label>
+        <input type="date" name="pmtTerms" />
+        <br>
+        <br>
 
         <label>📝 Notes</label>
         <textarea name="notes"></textarea>
-        <br />
         <br />
         <br />
         <br />

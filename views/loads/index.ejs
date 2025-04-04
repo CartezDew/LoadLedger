@@ -22,6 +22,9 @@
               <th>Rate</th>
               <th>Payment Status</th>
               <th>Contacted</th>
+              <th>Broker Invoiced</th>
+              <th>Invoiced Date</th>
+              <th>PMT Due</th>
               <th>Notes</th>
               <th>Actions</th>
             </tr>
@@ -37,8 +40,11 @@
                 <td><%= item.deliveryDate.toISOString().split('T')[0] %></td>
                 <td><%= item.deliveryLocation %></td>
                 <td>$<%= Number(item.rate).toFixed(2) %></td>
-                <td><%= item.paymentStatus %></td>
+                <td><%= item.paymentStatus === "notPaid" ? "Not Paid" : "Paid" %></td>
                 <td><%= item.contactedDate ? item.contactedDate.toISOString().split('T')[0] : '' %></td>
+                <td><%= item.invoiced %></td>
+                <td><%= item.invoicedDate ? item.invoicedDate.toISOString().split('T')[0] : '' %></td>
+                <td><%= item.pmtTerms ? item.pmtTerms.toISOString().split('T')[0] : '' %></td>
                 <td><%= item.notes %></td>
                 <td>
                   <a href="/users/<%= user._id %>/loads/<%= item._id %>/edit">Edit</a>

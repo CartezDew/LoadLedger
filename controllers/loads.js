@@ -52,7 +52,6 @@ router.post("/", async (req, res) => {
   try {
     const {
       brokerName,
-      // loadNumber,
       confirmationNumber,
       pickupDate,
       pickupLocation,
@@ -61,6 +60,9 @@ router.post("/", async (req, res) => {
       rate,
       paymentStatus,
       contactedDate,
+      invoiced,
+      invoicedDate,
+      pmtTerms,
       notes,
     } = req.body;
 
@@ -78,6 +80,9 @@ router.post("/", async (req, res) => {
       rate,
       paymentStatus,
       contactedDate,
+      invoiced,
+      invoicedDate,
+      pmtTerms,
       notes,
     });
     console.log('Form data:', req.body)
@@ -86,7 +91,7 @@ router.post("/", async (req, res) => {
     res.redirect(`/users/${req.session.user._id}/loads`);
   } catch (error) {
     console.error(error);
-    res.send("There was an error creating the menu.");
+    res.send("There was an error creating the load.");
   }
 });
 
@@ -117,6 +122,9 @@ router.put('/:itemId', async (req, res) => {
       rate,
       paymentStatus,
       contactedDate,
+      invoiced,
+      invoicedDate,
+      pmtTerms,
       notes,
     } = req.body;
  
@@ -132,7 +140,11 @@ router.put('/:itemId', async (req, res) => {
     load.rate = rate
     load.paymentStatus = paymentStatus
     load.contactedDate = contactedDate
+    load.invoiced = invoiced
+    load.invoicedDate = invoicedDate
+    load.pmtTerms = pmtTerms
     load.notes = notes
+     
 
     await user.save();
 

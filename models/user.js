@@ -33,11 +33,25 @@ const loadSchema= mongoose.Schema ({
     type: Number,
     required: true, 
   },
+  invoiced: {
+    type: String,
+    enum: ["yes", "no"],
+    required: false,
+  },  
+  invoicedDate: {
+      type: Date,
+      required: false,
+  },    
   notes: String,
   paymentStatus: {
     type: String,
-    enum: ["paid", "not paid"],
+    enum: ["paid", "notPaid"],
     required: true,
+  },
+
+  pmtTerms: {
+    type: Date,
+    required: false,
   },
     contactedDate: {
       type: Date,
@@ -56,6 +70,7 @@ const userSchema = mongoose.Schema({
   },
   loads: [loadSchema],
 });
+
 
 const User = mongoose.model("User", userSchema);
 

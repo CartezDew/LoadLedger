@@ -55,31 +55,49 @@
         value="<%= load.deliveryLocation %>" required
       />
       <br>
-      <br>
-      <label>💵 Rate</label>
-      <input type="number" name="rate" step="0.01" value="<%= load.rate %>" />
-
+      <div style="display: flex; align-items: flex-end; gap: 40px; margin-top: 20px;">
+        <!-- Rate Field -->
+        <div>
+          <label>💵 Rate</label><br />
+          <input type="number" name="rate" required />
+        </div>
+        <div>
+          <label>💰 Payment Status</label><br />
+          <input type="radio" id="notPaid" name="paymentStatus" value="notPaid" 
+          <%= load.paymentStatus === 'notPaid' ? 'checked' : '' %> />
+          <label for="notPaid">Not Paid</label>
+      
+          <input type="radio" id="paid" name="paymentStatus" value="paid" 
+          <%= load.paymentStatus === 'paid' ? 'checked' : '' %> />
+          <label for="paid">Paid</label>
+        </div>
+        <div>
+          <label>📄 Broker Invoiced</label><br />
+          <input type="radio" id="invoicedYes" name="invoiced" value="yes" 
+          <%= load.invoiced === 'yes' ? 'checked' : '' %> />
+          <label for="invoicedYes">Yes</label>
+      
+          <input type="radio" id="invoicedNo" name="invoiced" value="no" 
+          <%= load.invoiced === 'no' ? 'checked' : '' %> />
+          <label for="invoicedNo">No</label>
+        </div>
+      </div>
       <br />
-      <label>💰 Payment Status</label>
-      <input type="radio" id="notPaid" name="paymentStatus" value="not paid" <%=
-      load.paymentStatus === 'not paid' ? 'checked' : '' %> required />
-      <label for="notPaid">Not Paid</label>
 
-      <input type="radio" id="paid" name="paymentStatus" value="paid" <%=
-      load.paymentStatus === 'paid' ? 'checked' : '' %> required />
-      <label for="paid">Paid</label>
-      <br />
+      <label>Contacted Date</label>
+        <input type="date" name="contactedDate" />
 
-      <label>📍 Contacted Date</label>
-      <input
-        type="date"
-        name="contactedDate"
-        value="<%= load.contacted ? load.contacted.toISOString().split('T')[0] : '' %>"
-      />
+        <label>Invoiced Date</label>
+        <input type="date" name="invoicedDate" />
 
-      <label>📝 Notes</label>
-      <textarea name="notes"><%= load.notes %></textarea>
-      <br />
+        <label>Payment Due</label>
+        <input type="date" name="pmtTerms" />
+        <br>
+        <br>
+
+        <label>📝 Notes</label>
+        <textarea name="notes"></textarea>
+        <br />
       <br />
       <button type="submit">Update Item</button>
     </form>
