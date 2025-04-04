@@ -3,15 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>Welcome to LoadLedger</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />
   </head>
   <body>
-    <body>
-      <%- include('./partials/_navbar.ejs') %>
-      <h1>Welcome to LoadLedger</h1>
-      <h3>Say goodbye to spreadsheets and scattered notes!</h3>
-    <p>LoadLedger is a powerful, easy-to-use web app built for owner-operators, dispatchers, and fleet managers who need a smarter way to track loads, manage clients, and streamline operations..</p>
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/sign-in">Sign in</a>
+
+    <main class="hero">
+      <div class="hero-content">
+        <h1>Welcome to <span class="brand">LoadLedger</span></h1>
+        <h3>Say goodbye to spreadsheets and scattered notes</h3>
+        <p>
+          LoadLedger is your smart, intuitive solution to manage freight loads, clients, and payments — all in one place. Designed for truckers, fleet owners, and dispatchers who mean business!
+        </p>
+
+        <div class="cta-buttons">
+          <a href="/auth/sign-up" class="btn primary">Sign Up</a>
+          <a href="/auth/sign-in" class="btn outline">Sign In</a>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
