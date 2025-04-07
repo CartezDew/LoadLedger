@@ -34,6 +34,19 @@ body {
   flex-wrap: wrap;
 }
 
+.form-row {
+  display: flex;
+  gap: 1.5rem; 
+  align-items: flex-end; 
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+}
+
+
 .form-row.triple .form-group {
   flex: 1;
 }

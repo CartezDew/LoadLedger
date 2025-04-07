@@ -45,14 +45,15 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label>Delivery Location</label>
-          <input type="text" name="deliveryLocation" value="<%= load.deliveryLocation %>" required />
+          <label for="deliveryLocation">🏠 Delivery Location</label>
+          <input type="text" id="deliveryLocation" name="deliveryLocation" required />
         </div>
         <div class="form-group">
-          <label>💵 Rate</label>
-          <input type="number" name="rate" value="<%= load.rate %>" step="0.01" required />
+          <label for="rate">💵 Rate</label>
+          <input type="number" id="rate" name="rate" step="0.01" required />
         </div>
       </div>
+      
 
       <div class="form-row triple">
         <div class="form-group">
