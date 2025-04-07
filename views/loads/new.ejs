@@ -2,80 +2,109 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Edit Load Details</title>
-    <!-- <link rel="stylesheet" href="/styles.css"> Make sure your CSS file includes the button styling -->
+    <title>Add Load - LoadLedger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheet/load-form.css" />
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
 
-    <h1>Add Load Details</h1>
-    <div class="styled-body">
-      <form action="/users/<%= user._id %>/loads" method="POST">
+    <div class="form-container">
+      <h1 class="form-title">➕ Add Load Details</h1>
+      <form action="/users/<%= user._id %>/loads" method="POST" class="load-form">
+        <div class="form-group">
+          <label>📁 Load Number</label>
+          <input type="text" name="loadNumber" value="Auto-generated on save" readonly />
+        </div>
 
-        <label>📁 Load Number</label>
-        <input type="text" name="loadNumber" value="Auto-generated on save" readonly />
+        <div class="form-group">
+          <label>📦 Broker Name</label>
+          <input type="text" name="brokerName" required />
+        </div>
 
-        <label>📦 Broker Name</label>
-        <input type="text" name="brokerName" required/>
+        <div class="form-group">
+          <label>📁 Confirmation Number</label>
+          <input type="text" name="confirmationNumber" required />
+        </div>
 
-        <label>📁 Confirmation Number</label>
-        <input type="text" name="confirmationNumber" required/>
-        <br />
-        <br />
-        <label>🏠 Pickup Date</label>
-        <input type="date" name="pickupDate" required/>
-
-        <label> Pickup Location</label>
-        <input type="text" name="pickupLocation" required/>
-
-        <label> Delivery Date</label>
-        <input type="date" name="deliveryDate" required/>
-
-        <label> Delivery Location</label>
-        <input type="text" name="deliveryLocation" required/>
-        <br />
-        <div style="display: flex; align-items: flex-end; gap: 40px; margin-top: 20px;">
-          <!-- Rate Field -->
-          <div>
-            <label>💵 Rate</label><br />
-            <input type="number" name="rate" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label>🏠 Pickup Date</label>
+            <input type="date" name="pickupDate" required />
           </div>
-          <div>
-            <label>💰 Payment Status</label><br />
-            <input type="radio" id="notPaid" name="paymentStatus" value="notPaid" checked required />
-            <label for="notPaid">Not Paid</label>
-        
-            <input type="radio" id="paid" name="paymentStatus" value="paid" required />
-            <label for="paid">Paid</label>
-          </div>
-          <div>
-            <label>📄 Broker Invoiced</label><br />
-            <input type="radio" id="invoicedYes" name="invoiced" value="yes" />
-            <label for="invoicedYes">Yes</label>
-        
-            <input type="radio" id="invoicedNo" name="invoiced" value="no" checked />
-            <label for="invoicedNo">No</label>
+          <div class="form-group">
+            <label>Pickup Location</label>
+            <input type="text" name="pickupLocation" required />
           </div>
         </div>
-        <br />
 
-        <label>Contacted Date</label>
-        <input type="date" name="contactedDate" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>📍 Delivery Date</label>
+            <input type="date" name="deliveryDate" required />
+          </div>
+          <div class="form-group">
+            <label>Delivery Location</label>
+            <input type="text" name="deliveryLocation" required />
+          </div>
+        </div>
 
-        <label>Invoiced Date</label>
-        <input type="date" name="invoicedDate" />
+        <div class="form-row triple">
+          <div class="form-group">
+            <label>💵 Rate</label>
+            <input type="number" name="rate" required />
+          </div>
+          <div class="form-group">
+            <label>💰 Payment Status</label>
+            <div class="radio-group">
+              <input type="radio" id="notPaid" name="paymentStatus" value="notPaid" checked />
+              <label for="notPaid">Not Paid</label>
 
-        <label>Payment Due</label>
-        <input type="date" name="pmtTerms" />
-        <br>
-        <br>
+              <input type="radio" id="paid" name="paymentStatus" value="paid" />
+              <label for="paid">Paid</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>📄 Broker Invoiced</label>
+            <div class="radio-group">
+              <input type="radio" id="invoicedYes" name="invoiced" value="yes" />
+              <label for="invoicedYes">Yes</label>
 
-        <label>📝 Notes</label>
-        <textarea name="notes"></textarea>
-        <br />
-        <br />
-        <br />
-        <button type="submit">Add Load</button>
+              <input type="radio" id="invoicedNo" name="invoiced" value="no" checked />
+              <label for="invoicedNo">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Contacted Date</label>
+            <input type="date" name="contactedDate" />
+          </div>
+          <div class="form-group">
+            <label>Invoiced Date</label>
+            <input type="date" name="invoicedDate" />
+          </div>
+          <div class="form-group">
+            <label>Payment Due</label>
+            <input type="date" name="pmtTerms" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>📝 Notes</label>
+          <textarea name="notes" rows="4"></textarea>
+        </div>
+
+        <div class="button-group">
+        </a>
+        <button type="submit" class="btn-submit">➕ Add Load</button>
+          <a href="/" class="btn-back">
+            <img src="https://i.postimg.cc/sgDRBbCQ/arrow-back-3783.png" alt="Back arrow" />
+            Go Back
+          </a>
+        </div>        
+      </div>
       </form>
     </div>
   </body>

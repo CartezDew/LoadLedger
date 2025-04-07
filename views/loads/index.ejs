@@ -3,77 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Loads</title>
+    <title>Load Ledger Dashboard</title>
+    <link rel="stylesheet" href="/stylesheet/dashboard.css" />
   </head>
   <body>
-    <%- include('../partials/_navbar.ejs') %>
-    <h1>Load Ledger</h1>
-      <% if (loads.length > 0) { %>
-        <table>
-          <thead>
-            <tr>
-              <th>Load #</th>
-              <th>Broker</th>
-              <th>Confirmation #</th>
-              <th>Pickup Date</th>
-              <th>Pickup Location</th>
-              <th>Delivery Date</th>
-              <th>Delivery Location</th>
-              <th>Rate</th>
-              <th>Payment Status</th>
-              <th>Contacted</th>
-              <th>Broker Invoiced</th>
-              <th>Invoiced Date</th>
-              <th>PMT Due</th>
-              <th>Notes</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% loads.forEach(item => { %>
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="/users/<%= user._id %>/loads/new">Add Load</a></li>
+          <li><a href="#">Drivers</a></li>
+          <li><a href="#">Brokers</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <h1>LoadLedger Dashboard</h1>
+        
+        <% if (loads.length > 0) { %>
+        <div class="table-wrapper">
+          <table>
+            <thead>
               <tr>
-                <td><%= item.loadNumber %></td>
-                <td><%= item.brokerName %></td>
-                <td><%= item.confirmationNumber %></td>
-                <td><%= item.pickupDate.toISOString().split('T')[0] %></td>
-                <td><%= item.pickupLocation %></td>
-                <td><%= item.deliveryDate.toISOString().split('T')[0] %></td>
-                <td><%= item.deliveryLocation %></td>
-                <td>$<%= Number(item.rate).toFixed(2) %></td>
-                <td><%= item.paymentStatus === "notPaid" ? "Not Paid" : "Paid" %></td>
-                <td><%= item.contactedDate ? item.contactedDate.toISOString().split('T')[0] : '' %></td>
-                <td><%= item.invoiced === "yes" ? "Yes" : "No"%></td>
-                <td><%= item.invoicedDate ? item.invoicedDate.toISOString().split('T')[0] : '' %></td>
-                <td><%= item.pmtTerms ? item.pmtTerms.toISOString().split('T')[0] : '' %></td>
-                <td><%= item.notes %></td>
-                <td>
-                  <a href="/users/<%= user._id %>/loads/<%= item._id %>/edit">Edit</a>
-                  <form 
-                    action="/users/<%= user._id %>/loads/<%= item._id %>?_method=DELETE" 
-                    method="POST" 
-                    style="display: inline;"
-                  >
-                    <button type="submit">Delete</button>
-                  </form>
-                </td>
+                <th>Load ID</th>
+                <th>Broker</th>
+                <th>Confirmation #</th>
+                <th>Pickup</th>
+                <th>Delivery</th>
+                <th>Rate</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      <% } else { %>
-        <p>There are currently no loads to view.</p>
-      <% } %>
-    <br>
-    <a href="/users/<%= user._id %>/loads/new">
-      <button type="button">➕ Add New Load</button>
-    </a>
-    <a href="/users/<%= user._id %>/loads/export/excel">
-      <button type="button">📊 Export to Excel</button>
-    </a>
-    
-    <a href="/users/<%= user._id %>/loads/export/pdf">
-      <button type="button">📄 Export to PDF</button>
-    </a>
-  
+            </thead>
+            <tbody>
+              <% loads.forEach(item => { %>
+                <tr>
+                  <td><%= item.loadNumber %></td>
+                  <td><%= item.brokerName %></td>
+                  <td><%= item.confirmationNumber %></td>
+                  <td><%= item.pickupLocation %><br><small><%= item.pickupDate.toISOString().split('T')[0] %></small></td>
+                  <td><%= item.deliveryLocation %><br><small><%= item.deliveryDate.toISOString().split('T')[0] %></small></td>
+                  <td>$<%= Number(item.rate).toLocaleString(undefined, {minimumFractionDigits: 2}) %></td>
+                  <td>
+                    <% if (item.paymentStatus === "paid") { %>
+                      <span class="badge green">Paid</span>
+                    <% } else { %>
+                      <span class="badge orange">Pending</span>
+                    <% } %>
+                  </td>
+                  <td>
+                    <a href="/users/<%= user._id %>/loads/<%= item._id %>/edit" class="btn edit">Edit</a>
+                    <form action="/users/<%= user._id %>/loads/<%= item._id %>?_method=DELETE" method="POST" style="display: inline;">
+                      <button class="btn delete" type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <% } else { %>
+          <p>No loads yet. Click below to add one.</p>
+        <% } %>
+
+        <div class="actions">
+          <a href="/users/<%= user._id %>/loads/new" class="btn primary">➕ Add New Load</a>
+          <a href="/users/<%= user._id %>/loads/export/excel" class="btn excel">📊 Export to Excel</a>
+          <a href="/users/<%= user._id %>/loads/export/pdf" class="btn pdf">📄 Export to PDF</a>
+        </div>        
+      </main>
+    </div>
   </body>
 </html>

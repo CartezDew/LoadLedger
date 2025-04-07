@@ -1,0 +1,117 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+
+.form-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.load-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-row.triple .form-group {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+  padding: 0.7rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 0.25rem;
+}
+
+.btn-submit,
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px; 
+  height: 48px; 
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btn-submit {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.btn-submit:hover {
+  background-color: #27ae60;
+}
+
+.btn-back {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+.btn-back:hover {
+  background-color: #95a5a6;
+  color: #fff;
+}
+
+.btn-back img {
+  width: 15px;
+  height: 15px;
+  margin-right: 0.5rem;
+}
