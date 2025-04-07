@@ -16,7 +16,6 @@ body {
   height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
   width: 220px;
   background: #2c3e50;
@@ -146,7 +145,6 @@ td small {
   cursor: pointer;
 }
 
-
 .btn.primary {
   background-color: #2ecc71;
 }
@@ -155,7 +153,6 @@ td small {
   background-color: #27ae60;
 }
 
-/* Excel Button */
 .btn.excel {
   background-color: #2980b9;
 }
@@ -164,7 +161,6 @@ td small {
   background-color: #1f618d;
 }
 
-/* PDF Button */
 .btn.pdf {
   background-color: #c0392b;
 }
@@ -173,9 +169,6 @@ td small {
   background-color: #922b21;
 }
 
-  
-
-/* Status Badge */
 .badge {
   display: inline-block;
   padding: 0.4em 0.7em;

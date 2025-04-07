@@ -34,7 +34,6 @@ router.post("/sign-up", async (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
     req.body.password = hashedPassword;
 
-    // All ready to create the new user!
     await User.create(req.body);
 
     res.redirect("/auth/sign-in");
@@ -52,7 +51,6 @@ router.post("/sign-in", async (req, res) => {
       return res.send("Login failed. Please try again.");
     }
 
-    // There is a user! Time to test their password with bcrypt
     const validPassword = bcrypt.compareSync(
       req.body.password,
       userInDatabase.password

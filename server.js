@@ -41,7 +41,6 @@ app.get("/", (req, res) => {
 
 //Controllers
 app.use("/auth", authController);
-// This middleware will redirect a user who isn't signed in, to the /auth/sing-in route
 app.use(isSignedIn);
 app.use("/users/:userId/loads", loadsController);
 

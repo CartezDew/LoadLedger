@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,6 @@
     line-height: 1.6;
   }
   
-  /* Navbar Placeholder */
   nav {
     background-color: #1e1e2f;
     padding: 1rem 2rem;
@@ -25,7 +24,7 @@
     font-weight: 500;
   }
   
-  /* Hero Section */
+  
   .hero {
     display: flex;
     align-items: center;
@@ -62,7 +61,6 @@
     color: #e0e0e0;
   }
   
-  /* CTA Buttons */
   .cta-buttons {
     display: flex;
     justify-content: center;

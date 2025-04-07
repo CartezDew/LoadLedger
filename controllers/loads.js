@@ -8,7 +8,6 @@ const router = express.Router();
 //helper function
 
 async function getNextAvailableLoadNumber(user) {
-  // Extract only numbers from loadNumbers like 'LL-001'
   const existingNumbers = user.loads
     .map(load => {
       const match = load.loadNumber && load.loadNumber.match(/LL-(\d+)/);
@@ -23,8 +22,6 @@ async function getNextAvailableLoadNumber(user) {
 
   return `LL-${next.toString().padStart(3, '0')}`; // LL-001, LL-002, etc.
 }
-
-
 
 router.get("/", async (req, res) => {
   try {
@@ -89,7 +86,7 @@ router.post("/", async (req, res) => {
     });
     console.log('Form data:', req.body)
     await user.save();
-    // Redirect the user to the /users/userId/applications
+    
     res.redirect(`/users/${req.session.user._id}/loads`);
   } catch (error) {
     console.error(error);
