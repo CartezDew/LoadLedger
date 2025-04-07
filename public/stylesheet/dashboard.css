@@ -47,8 +47,8 @@ body {
     transition: all 0.3s ease;
   }
   
-  /* Special hover style for "Add Load" link */
-  .sidebar ul li a[href*="/loads/new"]:hover {
+  .sidebar ul li a[href*="/loads/new"]:hover,
+  .sidebar ul li a[href*="/auth/sign-out"]:hover {
     border: 2px solid #e74c3c;
     background-color: rgba(231, 76, 60, 0.1); /* soft red background */
     color: #e74c3c;
@@ -56,7 +56,7 @@ body {
   }
   
 
-/* Main Content */
+
 .main-content {
   flex: 1;
   padding: 2rem;
@@ -105,14 +105,6 @@ td small {
   cursor: pointer;
 }
 
-.btn.edit {
-  background-color: #3498db;
-}
-
-.btn.delete {
-  background-color: #e74c3c;
-}
-
 .btn.primary {
   background-color: #2ecc71;
   margin-top: 1rem;
@@ -154,7 +146,7 @@ td small {
   cursor: pointer;
 }
 
-/* Primary Button (Green) */
+
 .btn.primary {
   background-color: #2ecc71;
 }
@@ -197,6 +189,6 @@ td small {
   background-color: #27ae60;
 }
 
-.badge.orange {
+.badge.red {
   background-color: #e67e22;
 }

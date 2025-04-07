@@ -17,6 +17,8 @@
           <li><a href="#">Brokers</a></li>
           <li><a href="#">Reports</a></li>
           <li><a href="#">Settings</a></li>
+          <li><a href="/auth/sign-out">Sign Out</a></li>
+          
         </ul>
       </aside>
 
@@ -36,6 +38,7 @@
                 <th>Rate</th>
                 <th>Status</th>
                 <th>Actions</th>
+
               </tr>
             </thead>
             <tbody>
@@ -51,7 +54,7 @@
                     <% if (item.paymentStatus === "paid") { %>
                       <span class="badge green">Paid</span>
                     <% } else { %>
-                      <span class="badge orange">Pending</span>
+                      <span class="badge red">Not Paid</span>
                     <% } %>
                   </td>
                   <td>

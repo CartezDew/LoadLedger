@@ -85,7 +85,7 @@
     background-color: #ffcc00;
   }
   
-  /* Signup link */
+  /* Sign-in link */
   .signup-link {
     text-align: center;
     margin-top: 1rem;
@@ -97,3 +97,4 @@
     color: #ffd700;
     text-decoration: none;
   }
+  

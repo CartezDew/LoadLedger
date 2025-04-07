@@ -2,24 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - LoadLedger</title>
+  <link rel="stylesheet" href="/stylesheet/sign-up.css" />
 </head>
 <body>
-  <h1>Create a new account!</h1>
-  <form action="/auth/sign-up" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required />
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required />
-    <label for="confirmPassword">Confirm Password:</label>
-    <input 
-      type="password"
-      name="confirmPassword"
-      id="confirmPassword"
-      required 
-    />
-    <button type="submit">Sign up</button>
-  </form>
+  <div class="sign-in-container">
+    <div class="form-card">
+      <h1>Create your<br><br><span class="brand">LoadLedger</span> account</h1>
+
+      <form action="/auth/sign-up" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required />
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required />
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <p class="signup-link">Already have an account? <a href="/auth/sign-in">Sign in here</a>.</p>
+    </div>
+  </div>
 </body>
 </html>
