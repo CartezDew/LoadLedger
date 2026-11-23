@@ -68,3 +68,5 @@ Export all load data to Excel or PDF format in one click.
    - Add functionality for uploading driver information and details regarding their pay status and miles traveled.   
 
 7. - Alerts & notifications reminders (upcoming brokder payment deadlines, expiring documents or contracts, and etc.)
+
+8. - Add a timestamp to the edit and view pages of the loads. 
